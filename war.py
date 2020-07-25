@@ -71,23 +71,42 @@ class Deck:
 
     def deal(self, num_cards):
         """ 
-        deals num_cards number of cards and removes them from the deck and
+        Deals num_cards number of cards and removes them from the deck and
         returns a list
         """
         return [self.deck.pop() for i in range(num_cards)]
 
 
 class Player:
-    pass
+
+    def __init__(self):
+        self.hand = []
+
+    def __len__(self):
+        return len(self.hand)
+
+    def __iter__(self):
+        return iter(self.hand)
+
+    def __getitem__(self, position):
+        return self.hand[position]
 
 
-#BELOW IS TEMP CODE TO CHECK FUNCTIONALITY WORKS  
+def initial_deal(deck, player1, player2):
+    # Deals all 52 cards to two players. Player 1 assumed to be the dealer
+
+    for i in range(len(deck)):
+        pass
+
+
+
+# BELOW IS TEMP CODE TO CHECK FUNCTIONALITY WORKS  
 
 deck = Deck()
-print(len(deck))
+# print(len(deck))
 for i in deck:
     print(SUIT_SYMBOLS[i.suit] + i.ranking)
     
 x = deck.deal(3)
-print(x)
-print(len(deck))
+# print(x)
+# print(len(deck))
